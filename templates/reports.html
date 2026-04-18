@@ -1,50 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Отчетность - Черный Пекарь</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="gothic-card" style="width: 900px;">
-        <h2>Учёт продаж и отчётность</h2>
+{% extends "base.html" %}
+{% block title %}Отчеты{% endblock %}
 
-        <div style="background: #111; padding: 20px; border: 1px solid #333; margin-bottom: 30px;">
-            <h3 style="color: #d4af37; margin-top: 0;">Фильтр данных</h3>
-            <form style="display: flex; gap: 20px; align-items: flex-end;">
-                <div>
-                    <label>Период с</label>
-                    <input type="text" placeholder="ДД.ММ.ГГГГ" style="margin-bottom: 0;">
-                </div>
-                <div>
-                    <label>по</label>
-                    <input type="text" placeholder="ДД.ММ.ГГГГ" style="margin-bottom: 0;">
-                </div>
-                <button type="button" style="width: auto; padding: 10px 30px;">Применить</button>
-            </form>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>№ Заказа</th>
-                    <th>Дата</th>
-                    <th>Статус</th>
-                    <th>Сумма (₽)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
-                <tr>
-                    <td>{{ order[0] }}</td>
-                    <td>{{ order[3] }}</td> <td style="color: #d4af37;">{{ order[2] }}</td>
-                    <td>{{ order[4] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <br>
-        <a href="/admin" class="gothic-link">Вернуться в панель</a>
+{% block content %}
+<div class="gothic-card" style="width: 900px;">
+    <h2>Учёт продаж</h2>
+    <div style="background: #111; padding: 15px; border: 1px solid #333; margin-bottom: 20px;">
+        <p style="color: #d4af37; margin: 0;">Фильтр по датам: <input type="text" placeholder="с"> <input type="text" placeholder="по"> <button style="width: auto; padding: 5px 15px;">Ок</button></p>
     </div>
-</body>
-</html>
+    <table>
+        <tr><th>№ Заказа</th><th>Дата</th><th>Статус</th><th>Сумма</th></tr>
+        {% for o in orders %}
+        <tr>
+            <td>{{ o[0] }}</td>
+            <td>{{ o[3] }}</td>
+            <td style="color: #d4af37;">{{ o[2] }}</td>
+            <td>{{ o[4] }} ₽</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

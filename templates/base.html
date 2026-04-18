@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | Черный Пекарь</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="gothic-header">
+        <nav class="nav-container">
+            <div class="logo">ЧЕРНЫЙ ПЕКАРЬ</div>
+            <div class="nav-menu">
+                <a href="/">Главная</a>
+                <a href="/admin">Админка</a>
+                <a href="/reports">Отчетность</a>
+                <a href="/register">Регистрация</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="text-align: center; color: #444; padding: 20px; font-size: 0.8em;">
+        &copy; 2026 Bakery & Pastry Shop "Black Baker"
+    </footer>
+</body>
+</html>
