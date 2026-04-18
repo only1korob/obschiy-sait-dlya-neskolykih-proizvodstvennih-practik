@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вход - Черный Пекарь</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="gothic-card">
+        <h2>Вход</h2>
+
+        <form action="/login" method="post">
+            <label>Твой логин</label>
+            <input type="text" name="username" required placeholder="...">
+
+            <label>Твой пароль</label>
+            <input type="password" name="password" required placeholder="...">
+
+            <button type="submit">Войти в обитель</button>
+            <a href="/register" class="gothic-link">Создать аккаунт</a>
+        </form>
+    </div>
+</body>
+</html>

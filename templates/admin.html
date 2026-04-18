@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Панель Администратора - Черный Пекарь</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #222; }
+        th, td { border: 1px solid #444; padding: 12px; text-align: left; }
+        th { background: #111; color: #d4af37; text-transform: uppercase; font-size: 0.8em; }
+        .status-on { color: #00ffc2; font-weight: bold; } /* Бирюзовый из твоей игры */
+    </style>
+</head>
+<body>
+    <div class="gothic-card" style="width: 800px;">
+        <h2>Панель администратора</h2>
+
+        <h3 style="color: #d4af37;">Интеграции</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Тип</th>
+                    <th>Название сервиса</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in integrations %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td class="status-on">{{ 'Активна' if item[3] == 1 else 'Выключена' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <a href="/" class="gothic-link">Выйти из системы</a>
+        <hr style="border: 1px solid #333; margin: 40px 0;">
+
+<h3 style="color: #d4af37;">Журнал бэкапов</h3>
+<button style="width: auto; margin-bottom: 20px;">Создать бэкап сейчас</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Дата создания</th>
+            <th>Путь к файлу</th>
+            <th>Кем инициировано</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for backup in backups %}
+        <tr>
+            <td>{{ backup[1] }}</td>
+            <td style="color: #888;">{{ backup[2] }}</td>
+            <td>{{ backup[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+        <a href="/reports" class="gothic-link">Перейти к отчетам продаж</a>
+    </div>
+</body>
+</html>

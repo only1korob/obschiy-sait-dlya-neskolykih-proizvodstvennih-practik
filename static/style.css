@@ -1,0 +1,91 @@
+body {
+    background-image: url(/static/images/stone-bg.jpg);
+    background-color: #111;
+    color: #e0e0e0;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.gothic-card {
+    background: #1a1a1a;
+    border: 3px solid #444;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8), inset 0 0 50px rgba(139, 0, 0, 0.2);
+    width: 450px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gothic-card::before, .gothic-card::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #8b0000;
+}
+.gothic-card::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.gothic-card::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+h2 {
+    color: #d4af37;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+}
+
+label { display: block; margin-bottom: 5px; color: #aaa; font-size: 0.9em; }
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #0d0d0d;
+    border: 2px solid #333;
+    color: #fff;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #8b0000;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #444 0%, #000 100%);
+    color: #eee;
+    border: 2px solid #555;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #8b0000 0%, #440000 100%);
+    border-color: #d4af37;
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.gothic-link {
+    display: block;
+    text-align: center;
+    color: #8b0000;
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+.gothic-link:hover { color: #d4af37; }
